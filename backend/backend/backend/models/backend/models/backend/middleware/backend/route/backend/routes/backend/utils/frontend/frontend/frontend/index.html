@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/farm-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Farm Folder - Transform your farm data into actionable insights">
+    <title>Farm Folder 🌱 - Agricultural Insights Platform</title>
+    <style>
+      .loading-spinner {
+        border: 4px solid #f3f4f6;
+        border-top: 4px solid #10b981;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 2rem auto;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #10b981 0%, #047857 100%);">
+        <div style="text-align: center; color: white;">
+          <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">🌱 Farm Folder</h1>
+          <p style="font-size: 1.2rem; margin-bottom: 2rem;">Loading your agricultural insights...</p>
+          <div class="loading-spinner"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
