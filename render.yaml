@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: farm-folder-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: farm-folder-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 90d
+      - key: CLIENT_URL
+        value: https://farm-folder-frontend.onrender.com
+
+  - type: web
+    name: farm-folder-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://farm-folder-backend.onrender.com
+
+databases:
+  - name: farm-folder-db
+    plan: free
+    type: mongodb
+    version: 6.0
